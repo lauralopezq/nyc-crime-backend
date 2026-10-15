@@ -3,3 +3,5 @@ uvicorn
 google-generativeai
 pydantic
 starlette
+psycopg2-binary
+sqlalchemy
