@@ -1,0 +1,35 @@
+<script>
+  async function hacerPregunta() {
+    const inputPregunta = document.getElementById("preguntaInput").value;
+    const divResultado = document.getElementById("resultadoOutput");
+
+    if (!inputPregunta.trim()) {
+      alert("Por favor ingresa una pregunta.");
+      return;
+    }
+
+    divResultado.innerText = "Consultando a Gemini...";
+
+    try {
+      // USAR RUTA RELATIVA: /api/gemini
+      const response = await fetch('/api/gemini', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ pregunta: inputPregunta })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error en el servidor: ${response.status}`);
+      }
+
+      const data = await response.json();
+      divResultado.innerText = data.respuesta;
+
+    } catch (error) {
+      console.error(error);
+      divResultado.innerText = "Error al conectar con la API backend. Verifica que uvicorn esté corriendo.";
+    }
+  }
+</script>

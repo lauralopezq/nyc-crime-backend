@@ -1,0 +1,16 @@
+{
+  "name": "NYC Crime AI",
+  "short_name": "NYC Crime",
+  "description": "App de consulta y análisis espacial de crimen en NYC",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2564/2564286.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
